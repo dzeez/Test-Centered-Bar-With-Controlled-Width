@@ -1,1 +1,0 @@
-# Test-Centered-Bar-With-Controlled-Width
