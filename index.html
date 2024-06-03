@@ -1,0 +1,62 @@
+<!DOCTYPE html> <html><head>
+        <title>Test Centered Bar With Controlled Width</title>
+    <style>/* desired behavior: we want a "bar" constructed using a CSS container, which has an appearance, is centered, whose width is never tiny (unless it must be), and also never unreasonably wide (ie spanning the width of a highres gigantic widescreen) */
+
+/* overrides default huge margin for children */
+* {
+	margin: 0;
+/*     padding: 0; */
+}
+
+body {
+    margin: 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    
+/* stretch only seems useful if you're not going to later confine the size... */
+	/* align-items: stretch;  */
+}
+
+section{
+    margin: 1rem;
+/*     padding: 0; */
+    font: 3rem sans-serif;
+    background: moccasin;
+    color: coral;
+    border: 1px solid coral;
+    border-radius: 3px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+/* so instead of stretch (which won't work), setting both width and max-width obtains a behavior distinct to either alone */
+	width: 100%;
+    max-width: 35rem;
+}
+section:first-of-type {
+	margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+/* if you want most things centered, but not *all* things */
+.left {
+    width: 100%;
+    max-width: 35rem;
+}
+/* trick is to "break out" of the flex layout's content center-justifying (hence the div container) */
+/* other trick is...to maintain the same leading indent, have to use the same width trick */</style></head>
+    <body>
+        <section>
+            <header>Hello</header>
+        </section>
+        <div class="left">
+        	<aside>aside</aside>
+        </div>
+        <section><p>another section</p></section>
+        <section>final section</section>
+    
+
+</body></html>
